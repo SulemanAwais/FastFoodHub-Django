@@ -20,8 +20,8 @@ Welcome to **FastFoodHub**! 🚀 Your go-to place for delicious, fast, and conve
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/yourusername/FastFoodHub.git
-   cd FastFoodHub
+   git clone https://github.com/SulemanAwais/FastFoodHub-Django.git
+   cd FastFoodHub-Django
 
 2. **Set Up the Backend 🐍**
    - Create a virtual environment: 
@@ -53,28 +53,7 @@ Welcome to **FastFoodHub**! 🚀 Your go-to place for delicious, fast, and conve
       ```bash
       python manage.py runserver
 
-3. **Set Up the Frontend ⚛️**
-   - Navigate to the `frontend` directory:
-   
-      ```bash
-      cd frontend
-
-   - Install dependencies:
-   
-      ```bash
-      npm install
-
-   - Build the React app:
-   
-      ```bash
-      npm run build
-4. **Link Frontend with Django 🔗**
-   Copy the React build files to Django's static directory:
-   
-    ```bash
-   cp -r build/* ../fastfood_app/static/
-
-5. **Access the Application 🌐**
+3. **Access the Application 🌐**
 Open your browser and go to http://127.0.0.1:8000 to see FastFoodHub in action! 🍴
 
 ## Contributing 🤝
