@@ -114,10 +114,10 @@
                         </li>
 
                         <li class="nav-item animate-fadeInDown ms-lg-4" style="animation-delay: 0.6s;">
-                            <a href="#" id="cartButton" class="nav-link text-lg font-semibold hover:text-yellow-400 transition-colors">
-                                <i class="fas fa-shopping-cart"></i> Cart <span id="cartItemCount" class="bg-yellow-400 text-gray-900 rounded-full px-2 py-1 text-xs">0</span>
-                            </a>
-                        </li>
+                        <a href="#" id="cartButton" class="nav-link text-lg font-semibold hover:text-yellow-400 transition-colors">
+                            <i class="fas fa-shopping-cart"></i> Cart <span id="cartItemCount" class="bg-yellow-400 text-gray-900 rounded-full px-2 py-1 text-xs">0</span>
+                        </a>
+                    </li>
                     </ul>
                 </div>
             </div>
@@ -216,6 +216,7 @@
 
         cartButton.onclick = function() {
             cartModal.style.display = 'block';
+            console.log('test1')
             updateCart();
         };
 
@@ -232,6 +233,8 @@
         function updateCart() {
             cartItems.innerHTML = '';
             let total = 0;
+            console.log('test1')
+
             cart.forEach(item => {
                 cartItems.innerHTML += `
                     <div class="flex justify-between items-center mb-2">
@@ -252,6 +255,23 @@
 
         // Example: Adding an item to the cart
         // addToCart({ name: 'Burger', price: 5.99 });
+        // Initialize cart item count
+        let ItemCountInCart = 0;
+
+        // Select all 'Add to Cart' buttons
+        const addToCartButtons = document.querySelectorAll('.addToCartButton');
+
+        // Loop through each button and add a click event listener
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Increment cart item count
+                ItemCountInCart++;
+
+
+                // Update the cart item count in the nav
+                document.getElementById('cartItemCount').textContent = ItemCountInCart;
+            });
+        });
     </script>
 </body>
 </html>
