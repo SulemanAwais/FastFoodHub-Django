@@ -1,0 +1,39 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<main class="py-12">
+    <section class="container mx-auto px-4">
+        <h1 class="text-4xl font-bold text-center mb-8">About Us</h1>
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-semibold mb-4">Our Story</h2>
+            <p class="text-gray-700 mb-4">
+                Welcome to QuickBite! We are dedicated to providing fast and delicious meals delivered right to your door. Our journey began with a passion for great food and excellent service.
+            </p>
+            <h2 class="text-2xl font-semibold mb-4">Our Mission</h2>
+            <p class="text-gray-700 mb-4">
+                Our mission is to offer a seamless and enjoyable dining experience, ensuring that every meal is fresh, flavorful, and delivered with a smile.
+            </p>
+            <h2 class="text-2xl font-semibold mb-4">Meet the Team</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Team Member 1 -->
+                <div class="bg-gray-100 rounded-lg p-4 shadow-md">
+                    <img src="/path/to/team-member1.jpg" alt="Team Member 1" class="w-full h-48 object-cover rounded-t-lg">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2">John Doe</h3>
+                        <p class="text-gray-600">Founder & CEO</p>
+                    </div>
+                </div>
+                <!-- Team Member 2 -->
+                <div class="bg-gray-100 rounded-lg p-4 shadow-md">
+                    <img src="/path/to/team-member2.jpg" alt="Team Member 2" class="w-full h-48 object-cover rounded-t-lg">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2">Jane Smith</h3>
+                        <p class="text-gray-600">Head Chef</p>
+                    </div>
+                </div>
+                <!-- Add more team members here -->
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
