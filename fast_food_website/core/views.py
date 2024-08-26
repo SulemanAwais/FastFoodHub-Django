@@ -18,5 +18,9 @@ class SpecialDealsPageView(TemplateView):
     template_name = 'core/special_deals.html'
 
 
+class CheckoutPageView(TemplateView):
+    template_name = 'core/checkout.html'
+
+
 class AboutView(TemplateView):
     template_name = 'core/about.html'
