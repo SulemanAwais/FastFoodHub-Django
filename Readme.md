@@ -1,6 +1,14 @@
 # FastFoodHub 🍔🍟
 
 Welcome to **FastFoodHub**! 🚀 Your go-to place for delicious, fast, and convenient food delivery. This project combines a Django backend with a responsive and aesthetically pleasing front-end using HTML, CSS, Tailwind CSS, Bootstrap, and JavaScript.
+## Table of content:
+- [Features 🌟](#features-)
+- [Tech Stack 🛠️](#tech-stack-️)
+- [Setup 🔧](#setup-)
+- [Contributing 🤝](#contributing-)
+- [License 📜](#license-)
+- [Contact 📬](#contact-)
+
 
 ## Features 🌟
 
@@ -15,7 +23,7 @@ Welcome to **FastFoodHub**! 🚀 Your go-to place for delicious, fast, and conve
 - **Database**: PostgreSQL (or SQLite for development)
 - **Static Files**: Served through Django
 
-### Setup 🔧
+## Setup 🔧
 
 1. **Clone the Repository**
 
