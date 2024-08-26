@@ -5,6 +5,8 @@
 *.pyo
 *.pyd
 __pycache__
+fast_food_website/core/__pycache__
+fast_food_website/fast_food_website/__pycache__
 db.sqlite3
 media/
 staticfiles/
