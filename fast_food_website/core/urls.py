@@ -6,5 +6,6 @@ urlpatterns = [
     path('menu/', MenuPageView.as_view(), name='menu'),
     path('special-deals/', SpecialDealsPageView.as_view(), name='special_deals'),
     path('about/', AboutView.as_view(), name='about'),
+    path('checkout/', CheckoutPageView.as_view(), name='checkout'),
 
 ]
