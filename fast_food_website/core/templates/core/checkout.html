@@ -46,10 +46,10 @@
                         </select>
                     </div>
                     <div class="flex items-center justify-between">
-                        <button type="submit" class="bg-yellow-400 text-gray-900 py-2 px-6 rounded-full text-lg font-semibold hover:bg-yellow-500 transition duration-300 btn-hover">
+                        <button type="submit" class="bg-yellow-400 text-gray-900 py-2 px-6 rounded-full text-lg font-semibold hover:bg-yellow-500 transition duration-300 btn-hover" id="placeOrderBtn">
                             Place Order
                         </button>
-                        <a href="index.html" class="text-red-600 hover:text-red-800 transition duration-300">
+                        <a href="#" id="cancelOrderBtn" class="text-red-600 hover:text-red-800 transition duration-300">
                             Cancel Order
                         </a>
                     </div>
@@ -58,6 +58,27 @@
         </div>
     </div>
 </main>
+
+<div id="placeOrderModal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white p-6 rounded-lg shadow-lg">
+        <h3 class="text-2xl font-bold mb-4">Order Placed!</h3>
+        <p>Your order has been placed successfully. Thank you for choosing us!</p>
+        <button onclick="closeModal('placeOrderModal')" class="mt-4 bg-yellow-400 text-gray-900 py-2 px-4 rounded-full hover:bg-yellow-500 transition duration-300">Close</button>
+    </div>
+</div>
+
+<div id="cancelOrderModal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white p-6 rounded-lg shadow-lg">
+        <h3 class="text-2xl font-bold mb-4">Order Canceled!</h3>
+        <div class="mt-4">
+            <p class="text-lg font-semibold text-gray-700">Your order has been canceled. We hope to see you again soon.</p>
+        </div>
+        <div class="mt-4">
+            <a href="{% url 'landing_page'%}" class="bg-red-400 text-white py-2 px-4 rounded-full hover:bg-red-500 transition duration-300">Cancel Order</a>
+        </div>
+    </div>
+</div>
+
 <script>
 // Mock cart data (replace this with actual cart data in a real application)
     const cart = [
@@ -84,14 +105,25 @@
 
     orderTotal.textContent = `$${total.toFixed(2)}`;
 
-    // Form submission
-    const checkoutForm = document.getElementById('checkoutForm');
-    checkoutForm.addEventListener('submit', function(e) {
+    // Handle Place Order
+    const placeOrderBtn = document.getElementById('placeOrderBtn');
+    placeOrderBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        alert('Order placed successfully! Thank you for your purchase.');
-        // Here you would typically send the order data to a server
-        window.location.href = 'index.html'; // Redirect to home page after order
+        document.getElementById('placeOrderModal').classList.remove('hidden');
     });
+
+    // Handle Cancel Order
+    const cancelOrderBtn = document.getElementById('cancelOrderBtn');
+    cancelOrderBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('cancelOrderModal').classList.remove('hidden');
+    });
+
+    // Close Modal Function
+    function closeModal(modalId) {
+        document.getElementById(modalId).classList.add('hidden');
+    }
+
 </script>
 
 {% endblock %}
