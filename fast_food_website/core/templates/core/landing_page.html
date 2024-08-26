@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <section class="py-12 bg-yellow-300">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl font-bold text-center mb-8">Welcome to QuickBite</h1>
+            <p class="text-xl text-center mb-8">Delicious fast food delivered to your doorstep!</p>
+            <div class="text-center">
+                <a href="menu.html" class="bg-red-600 text-white py-2 px-6 rounded-full text-lg font-semibold hover:bg-red-700 transition duration-300">Order Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Featured Items</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Featured Item 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden food-card">
+                    <img src="/placeholder.svg?height=200&width=400" alt="Deluxe Burger" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2">Deluxe Burger</h3>
+                        <p class="text-gray-600 mb-4">Juicy beef patty with cheese, lettuce, and our special sauce</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-red-600">$8.99</span>
+                            <button class="bg-yellow-400 text-gray-800 py-1 px-4 rounded-full hover:bg-yellow-500 transition duration-300">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Item 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden food-card">
+                    <img src="/placeholder.svg?height=200&width=400" alt="Crispy Chicken Wings" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2">Crispy Chicken Wings</h3>
+                        <p class="text-gray-600 mb-4">Crispy and flavorful wings with your choice of sauce</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-red-600">$7.99</span>
+                            <button class="bg-yellow-400 text-gray-800 py-1 px-4 rounded-full hover:bg-yellow-500 transition duration-300">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Item 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden food-card">
+                    <img src="/placeholder.svg?height=200&width=400" alt="Veggie Supreme Pizza" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2">Veggie Supreme Pizza</h3>
+                        <p class="text-gray-600 mb-4">Loaded with fresh vegetables and melted cheese</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-red-600">$12.99</span>
+                            <button class="bg-yellow-400 text-gray-800 py-1 px-4 rounded-full hover:bg-yellow-500 transition duration-300">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-red-600 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Special Deals</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white text-gray-800 rounded-lg shadow-md p-6 food-card">
+                    <h3 class="text-2xl font-semibold mb-4">Family Feast</h3>
+                    <p class="mb-4">2 Large Pizzas, 1 Side, and 4 Drinks</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-red-600">$29.99</span>
+                        <button class="bg-yellow-400 text-gray-800 py-2 px-6 rounded-full hover:bg-yellow-500 transition duration-300">Order Now</button>
+                    </div>
+                </div>
+                <div class="bg-white text-gray-800 rounded-lg shadow-md p-6 food-card">
+                    <h3 class="text-2xl font-semibold mb-4">Lunch Special</h3>
+                    <p class="mb-4">Any Sandwich, Fries, and a Drink</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-red-600">$9.99</span>
+                        <button class="bg-yellow-400 text-gray-800 py-2 px-6 rounded-full hover:bg-yellow-500 transition duration-300">Order Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
