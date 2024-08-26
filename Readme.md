@@ -68,7 +68,8 @@ We welcome contributions to enhance the FastFoodHub project. Please follow these
 
 ## License 📜
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License. For more details, see the full [MIT License text](https://opensource.org/licenses/MIT).
+
 
 ## Contact 📬
 
