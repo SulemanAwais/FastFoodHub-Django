@@ -14,4 +14,5 @@ class MenuPageView(TemplateView):
     template_name = 'core/menu.html'
 
 
-
+class SpecialDealsPageView(TemplateView):
+    template_name = 'core/special_deals.html'

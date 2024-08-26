@@ -18,12 +18,12 @@
 <body class="bg-gray-100">
     <header class="bg-red-600 text-white py-4 shadow-md">
         <div class="container mx-auto px-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold">QuickBite</a>
+            <a href="{% url 'landing_page' %}" class="text-2xl font-bold">QuickBite</a>
             <nav>
                 <ul class="flex space-x-4">
-                    <li><a href="index.html" class="hover:text-yellow-300">Home</a></li>
-                    <li><a href="menu.html" class="hover:text-yellow-300">Menu</a></li>
-                    <li><a href="deals.html" class="hover:text-yellow-300">Special Deals</a></li>
+                    <li><a href="{% url 'landing_page' %}" class="hover:text-yellow-300">Home</a></li>
+                    <li><a href="{% url 'menu' %}" class="hover:text-yellow-300">Menu</a></li>
+                    <li><a href="{% url 'special_deals' %}" class="hover:text-yellow-300">Special Deals</a></li>
                     <li><a href="about.html" class="hover:text-yellow-300">About</a></li>
                     <li><a href="cart.html" class="hover:text-yellow-300"><i class="fas fa-shopping-cart"></i> Cart</a></li>
                 </ul>
