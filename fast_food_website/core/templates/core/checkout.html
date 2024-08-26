@@ -1,0 +1,97 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<main class="pt-24 pb-12">
+    <div class="container mx-auto px-4">
+        <h1 class="text-3xl font-bold mb-8 text-center">Checkout</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-semibold mb-4">Order Summary</h2>
+                <div id="orderSummary" class="space-y-4">
+                    <!-- Order items will be dynamically added here -->
+                </div>
+                <div class="mt-6 flex justify-between items-center border-t pt-4">
+                    <h3 class="text-xl font-semibold">Total:</h3>
+                    <span id="orderTotal" class="text-xl font-bold">$0.00</span>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-semibold mb-4">Delivery Information</h2>
+                <form id="checkoutForm">
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Full Name</label>
+                        <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
+                        <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="address" class="block text-gray-700 text-sm font-bold mb-2">Delivery Address</label>
+                        <textarea id="address" name="address" rows="3" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required></textarea>
+                    </div>
+                    <div class="mb-6">
+                        <label for="paymentMethod" class="block text-gray-700 text-sm font-bold mb-2">Payment Method</label>
+                        <select id="paymentMethod" name="paymentMethod" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                            <option value="">Select a payment method</option>
+                            <option value="credit">Credit Card</option>
+                            <option value="debit">Debit Card</option>
+                            <option value="paypal">PayPal</option>
+                            <option value="cash">Cash on Delivery</option>
+                        </select>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <button type="submit" class="bg-yellow-400 text-gray-900 py-2 px-6 rounded-full text-lg font-semibold hover:bg-yellow-500 transition duration-300 btn-hover">
+                            Place Order
+                        </button>
+                        <a href="index.html" class="text-red-600 hover:text-red-800 transition duration-300">
+                            Cancel Order
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+// Mock cart data (replace this with actual cart data in a real application)
+    const cart = [
+        {name: 'Deluxe Burger', price: 8.99, quantity: 2},
+        {name: 'Crispy Chicken Wings', price: 7.99, quantity: 1},
+        {name: 'Fries', price: 2.99, quantity: 2}
+    ];
+
+    // Populate order summary
+    const orderSummary = document.getElementById('orderSummary');
+    const orderTotal = document.getElementById('orderTotal');
+    let total = 0;
+
+    cart.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.className = 'flex justify-between items-center';
+        itemElement.innerHTML = `
+            <span>${item.name} x ${item.quantity}</span>
+            <span>$${(item.price * item.quantity).toFixed(2)}</span>
+        `;
+        orderSummary.appendChild(itemElement);
+        total += item.price * item.quantity;
+    });
+
+    orderTotal.textContent = `$${total.toFixed(2)}`;
+
+    // Form submission
+    const checkoutForm = document.getElementById('checkoutForm');
+    checkoutForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Order placed successfully! Thank you for your purchase.');
+        // Here you would typically send the order data to a server
+        window.location.href = 'index.html'; // Redirect to home page after order
+    });
+</script>
+
+{% endblock %}
