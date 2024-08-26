@@ -139,9 +139,9 @@
                 <div class="col-md-4 mb-4">
                     <h4 class="text-xl font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-yellow-400 transition-colors">Home</a></li>
-                        <li><a href="menu.html" class="text-gray-400 hover:text-yellow-400 transition-colors">Menu</a></li>
-                        <li><a href="deals.html" class="text-gray-400 hover:text-yellow-400 transition-colors">Deals</a></li>
+                        <li><a href="{% url 'landing_page' %}" class="text-gray-400 hover:text-yellow-400 transition-colors">Home</a></li>
+                        <li><a href="{% url 'menu' %}" class="text-gray-400 hover:text-yellow-400 transition-colors">Menu</a></li>
+                        <li><a href="{% url 'special_deals' %}" class="text-gray-400 hover:text-yellow-400 transition-colors">Deals</a></li>
                         <li><a href="{% url 'about' %}" class="text-gray-400 hover:text-yellow-400 transition-colors">About</a></li>
                         <li><a href="cart.html" class="text-gray-400 hover:text-yellow-400 transition-colors">Cart</a></li>
                     </ul>
