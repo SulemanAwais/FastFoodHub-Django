@@ -1,0 +1,52 @@
+# Django specific
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+db.sqlite3
+media/
+staticfiles/
+
+# Environment variables
+.env
+
+# Python
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+build
+pip-wheel-metadata
+
+# Virtual environment
+.venv/
+venv/
+env/
+ENV/
+venv.bak/
+.env/
+
+# IDE/editor specific
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Coverage reports
+.coverage
+coverage.xml
+*.cover
+*.py,cover
+nosetests.xml
+test_*.xml
+*.log
+
+# Sphinx documentation
+docs/_build/
