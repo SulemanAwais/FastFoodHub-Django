@@ -54,7 +54,7 @@
         .animate-fadeInDown {
             animation: fadeInDown 0.5s ease-out;
         }
-        .cart-modal {
+        .cart-modal, .login-modal {
             display: none;
             position: fixed;
             z-index: 1000;
@@ -65,16 +65,15 @@
             overflow: auto;
             background-color: rgba(0,0,0,0.4);
         }
-        .cart-modal-content {
+        .cart-modal-content, .login-modal-content {
             background-color: #fefefe;
             margin: 15% auto;
             padding: 20px;
             border: 1px solid #888;
             width: 80%;
-            max-width: 500px;
+            max-width: 600px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            position: relative;
         }
 
         /* Ensure close button is properly positioned */
@@ -188,12 +187,75 @@
                 <span id="cartTotal" class="text-xl font-bold">$0.00</span>
             </div>
             <div class="mt-6 text-center">
-                <a id="checkoutButton" href="{%url 'checkout'%}" class="bg-yellow-400 text-gray-900 py-2 px-6 rounded-full text-lg font-semibold hover:bg-yellow-500 transition duration-300 btn-hover">
+                <button id="checkoutButton" class="bg-yellow-400 text-gray-900 py-2 px-6 rounded-full text-lg font-semibold hover:bg-yellow-500 transition duration-300 btn-hover">
                     Proceed to Checkout
-                </a>
+                </button>
             </div>
         </div>
     </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="login-modal">
+        <div class="login-modal-content">
+            <span class="close">&times;</span>
+            <h2 class="text-2xl font-bold mb-4">Login</h2>
+            <div id="loginOptions" class="space-y-4">
+                <button i d="googleLogin" class="w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition duration-300 btn-hover flex items-center justify-center">
+                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google Logo" class="w-6 h-6 mr-2">
+                    Login with Google
+                </button>
+                <div class="text-center">or</div>
+                <form id="phoneLoginForm">
+                    <div class="mb-4">
+                        <label for="phoneNumber" class="block text-gray-700 text-sm font-bold mb-2">Phone Number (Pakistan)</label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" pattern="^(\+92|0092|92|0)?3[0-9]{9}$" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                    </div>
+                    <button type="submit" class="w-full bg-yellow-400 text-gray-900 py-2 px-4 rounded-full text-lg font-semibold hover:bg-yellow-500 transition duration-300 btn-hover">
+                        Continue with Phone
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- OTP Modal -->
+    <div id="otpModal" class="login-modal">
+        <div class="login-modal-content">
+            <span class="close">&times;</span>
+            <h2 class="text-2xl font-bold mb-4">Enter OTP</h2>
+            <form id="otpForm">
+                <div class="mb-4">
+                    <label for="otp" class="block text-gray-700 text-sm font-bold mb-2">Enter the OTP sent to your phone</label>
+                    <input type="text" id="otp" name="otp" pattern="\d{6}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                </div>
+                <button type="submit" class="w-full bg-yellow-400 text-gray-900 py-2 px-4 rounded-full text-lg font-semibold hover:bg-yellow-500 transition duration-300 btn-hover">
+                    Verify OTP
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Create Account Modal -->
+    <div id="createAccountModal" class="login-modal">
+        <div class="login-modal-content">
+            <span class="close">&times;</span>
+            <h2 class="text-2xl font-bold mb-4">Create Account</h2>
+            <form id="createAccountForm">
+                <div class="mb-4">
+                    <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Username</label>
+                    <input type="text" id="username" name="username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+                    <input type="password" id="password" name="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                </div>
+                <button type="submit" class="w-full bg-yellow-400 text-gray-900 py-2 px-4 rounded-full text-lg font-semibold hover:bg-yellow-500 transition duration-300 btn-hover">
+                    Create Account
+                </button>
+            </form>
+        </div>
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -218,6 +280,9 @@
         const cartTotal = document.getElementById('cartTotal');
         const cartItemCount = document.getElementById('cartItemCount');
         const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        const phoneLoginForm = document.getElementById('phoneLoginForm');
+        const otpForm = document.getElementById('otpForm');
+        const createAccountForm = document.getElementById('createAccountForm');
 
         let cart = [];
 
@@ -304,7 +369,33 @@
             cart.splice(index, 1);
             updateCartModal();
         }
+        checkoutButton.onclick = function() {
+            if (true) { // Replace with your actual condition later
+                cartModal.style.display = 'none';
+                loginModal.style.display = 'block';
+            }
+        }
 
+        phoneLoginForm.onsubmit = function(e) {
+            e.preventDefault();
+            loginModal.style.display = 'none';
+            otpModal.style.display = 'block';
+        }
+
+        otpForm.onsubmit = function(e) {
+            e.preventDefault();
+            // Here you would verify the OTP
+            // For now, we'll just show the create account modal
+            otpModal.style.display = 'none';
+            createAccountModal.style.display = 'block';
+        }
+
+        createAccountForm.onsubmit = function(e) {
+            e.preventDefault();
+            alert('Account created successfully! Proceeding to checkout...');
+            // Here you would typically send the account data to a server and proceed to checkout
+            window.location.href = 'checkout.html';
+        }
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
