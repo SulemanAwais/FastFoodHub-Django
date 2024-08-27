@@ -70,15 +70,20 @@
             padding: 20px;
             border: 1px solid #888;
             width: 80%;
-            max-width: 600px;
+            max-width: 500px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
+
+        /* Ensure close button is properly positioned */
         .close {
             color: #aaa;
-            float: right;
             font-size: 28px;
             font-weight: bold;
+            position: absolute;
+            right: 10px;
+            top: 10px;
         }
         .close:hover,
         .close:focus {
@@ -116,9 +121,9 @@
                             <a class="nav-link text-lg font-semibold hover:text-yellow-400 transition-colors" href="{% url 'about' %}">About</a>
                         </li>
 
-                        <li class="nav-item animate-fadeInDown ms-lg-4" style="animation-delay: 0.6s;">
+                        <li class="nav-item animate-fadeInDown ms-lg-2" style="animation-delay: 0.6s;">
                         <a href="#" id="cartButton" class="nav-link text-lg font-semibold hover:text-yellow-400 transition-colors">
-                            <i class="fas fa-shopping-cart"></i> Cart <span id="cartItemCount" class="bg-yellow-400 text-gray-900 rounded-full px-2 py-1 text-xs">0</span>
+                            <i class="fas fa-shopping-cart"></i> Cart <span id="cartItemCount" class="bg-yellow-400 text-gray-900 rounded-full px-2 py-1 text-xs text-center" style="display:block">0</span>
                         </a>
                     </li>
                     </ul>
@@ -275,6 +280,70 @@
                 document.getElementById('cartItemCount').textContent = ItemCountInCart;
             });
         });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    // Cart modal elements
+    const cartButton = document.getElementById('cartButton');
+    const cartModal = document.getElementById('cartModal');
+    const closeCartModal = document.getElementById('closeCartModal');
+    const cartItems = document.getElementById('cartItems');
+    const cartTotal = document.getElementById('cartTotal');
+    const cartItemCount = document.getElementById('cartItemCount');
+
+    // Function to show cart modal
+    function showCartModal() {
+        cartModal.style.display = 'block';
+    }
+
+    // Function to hide cart modal
+    function hideCartModal() {
+        cartModal.style.display = 'none';
+    }
+
+    // Open modal on cart button click
+    cartButton.addEventListener('click', showCartModal);
+
+    // Close modal on close button click
+    closeCartModal.addEventListener('click', hideCartModal);
+
+    // Close modal if clicked outside
+    window.addEventListener('click', function(event) {
+        if (event.target === cartModal) {
+            hideCartModal();
+        }
+    });
+
+    // Update cart items and total
+    function updateCart() {
+        cartItems.innerHTML = '';
+        let total = 0;
+
+        cart.forEach(item => {
+            cartItems.innerHTML += `
+                <div class="flex justify-between items-center mb-2">
+                    <span>${item.name}</span>
+                    <span>$${item.price.toFixed(2)}</span>
+                </div>
+            `;
+            total += item.price;
+        });
+
+        cartTotal.textContent = `$${total.toFixed(2)}`;
+        cartItemCount.textContent = cart.length;
+    }
+
+    // Sample cart items and total update
+    let cart = [];
+    function addToCart(item) {
+        cart.push(item);
+        updateCart();
+    }
+
+    // Example: Adding an item to the cart
+    // addToCart({ name: 'Burger', price: 5.99 });
+});
+
     </script>
 </body>
 </html>
