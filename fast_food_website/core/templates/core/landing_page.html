@@ -1,4 +1,5 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
 {% block content %}
 <main>
@@ -17,7 +18,7 @@
             <h2 class="text-3xl font-bold text-center mb-8">Featured Items</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-white rounded-lg shadow-md overflow-hidden food-card">
-                    <img src="/placeholder.svg?height=200&width=400" alt="Deluxe Burger" class="w-full h-48 object-cover">
+                    <img src="{% static 'core/dulex_burger.jpg' %}?height=200&width=400" alt="Deluxe Burger" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h3 class="text-xl font-semibold mb-2">Deluxe Burger</h3>
                         <p class="text-gray-600 mb-4">Juicy beef patty with cheese, lettuce, and our special sauce</p>
@@ -29,7 +30,7 @@
                 </div>
 
                 <div class="bg-white rounded-lg shadow-md overflow-hidden food-card">
-                    <img src="/placeholder.svg?height=200&width=400" alt="Crispy Chicken Wings" class="w-full h-48 object-cover">
+                    <img src="{% static 'core/wings.jpg' %}?height=200&width=400" alt="Crispy Chicken Wings" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h3 class="text-xl font-semibold mb-2">Crispy Chicken Wings</h3>
                         <p class="text-gray-600 mb-4">Crispy and flavorful wings with your choice of sauce</p>
@@ -41,7 +42,7 @@
                 </div>
 
                 <div class="bg-white rounded-lg shadow-md overflow-hidden food-card">
-                    <img src="/placeholder.svg?height=200&width=400" alt="Veggie Supreme Pizza" class="w-full h-48 object-cover">
+                    <img src="{% static 'core/veg_pizza.jpg' %}?height=200&width=400" alt="Veggie Supreme Pizza" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h3 class="text-xl font-semibold mb-2">Veggie Supreme Pizza</h3>
                         <p class="text-gray-600 mb-4">Loaded with fresh vegetables and melted cheese</p>
