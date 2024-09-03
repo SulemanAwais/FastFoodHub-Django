@@ -1,4 +1,5 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
 {% block content %}
 <main>
@@ -15,7 +16,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Deal 1 -->
                 <div class="bg-white rounded-lg shadow-md overflow-hidden food-card">
-                    <img src="/placeholder.svg?height=200&width=400" alt="Family Feast" class="w-full h-48 object-cover">
+                    <img src="{% static 'core/two_pizza_deal.jpg' %}?height=200&width=400" alt="Family Feast" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h3 class="text-xl font-semibold mb-2">Family Feast</h3>
                         <p class="text-gray-600 mb-4">2 Large Pizzas, 1 Side, and 4 Drinks</p>
@@ -35,7 +36,7 @@
 
                 <!-- Deal 2 -->
                 <div class="bg-white rounded-lg shadow-md overflow-hidden food-card">
-                    <img src="/placeholder.svg?height=200&width=400" alt="Lunch Special" class="w-full h-48 object-cover">
+                    <img src="{% static 'core/sandwhich_deal.jpg' %}?height=200&width=400" alt="Lunch Special" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h3 class="text-xl font-semibold mb-2">Lunch Special</h3>
                         <p class="text-gray-600 mb-4">Any Sandwich, Fries, and a Drink</p>
